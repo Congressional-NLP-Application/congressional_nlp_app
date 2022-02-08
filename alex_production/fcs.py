@@ -16,5 +16,3 @@ def get_tweets(username):
     tweets = api.user_timeline(screen_name = username)
     for tweet in tweets:
         print(tweet.text)
-
-    
