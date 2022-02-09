@@ -1,5 +1,6 @@
 from os import getenv
 from dotenv import load_dotenv
+import pandas as pd
 import tweepy
 
 load_dotenv(r"C:\Users\Alex Lucchesi\OneDrive\Documents\GitHub\congressional_sentiment_NLP\alex_production\.env")
@@ -12,7 +13,12 @@ auth = tweepy.OAuthHandler(ak, aks)
 auth.set_access_token(at, ats)
 api = tweepy.API(auth)
 
-def get_tweets(username):
-    tweets = api.user_timeline(screen_name = username)
-    for tweet in tweets:
-        print(tweet.text)
+
+handles = pd.read_csv('twitter_handles.csv')
+handles = handles.twitter_handle
+
+def get_tweets():
+    for handle in handles:
+        tweets = api.user_timeline(screen_name = str(handle))
+        for tweet in tweets:
+            print(handle, tweet.text)
