@@ -25,6 +25,7 @@ def get_tweets():
     for handle in handles:
         tweets = api.user_timeline(screen_name = str(handle))
         for tweet in tweets:
+<<<<<<< Updated upstream
             l.extend([[handle, tweet.text]])
     return l
             
@@ -60,4 +61,7 @@ def drop_table():
     print("Table successfully deleted")
     
 
+=======
+            print(handle, tweet.text)
+>>>>>>> Stashed changes
 
