@@ -34,6 +34,7 @@ def get_tweets():
     for handle in handles:
         tweets = api.user_timeline(screen_name = str(handle))
         for tweet in tweets:
+<<<<<<< Updated upstream
             l.extend([[handle, tweet.text]])
     print("API has successfully scraped all tweets from Senators.")
     return l
